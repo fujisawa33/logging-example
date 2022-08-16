@@ -1,8 +1,9 @@
 package main
 
 import (
-	"log"
 	"net/http"
+
+	"go.uber.org/zap"
 )
 
 func main() {
@@ -11,5 +12,10 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	log.Print("hogehoge")
+	logger, _ := zap.NewProduction()
+	defer logger.Sync()
+	logger.Info("ほげほげ",
+		zap.String("ふがふが", "fugafuga"),
+		zap.String("ぴよぴよ", "piyopiyo"),
+	)
 }
