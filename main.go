@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"regexp"
+	"time"
 
 	"go.uber.org/zap"
 
@@ -48,8 +49,11 @@ func ungrouped(c echo.Context) error {
 	logger, _ := zap.NewProduction()
 	defer logger.Sync()
 
+	time.Sleep(time.Second * 1)
 	logger.Info("hogehoge")
+	time.Sleep(time.Second * 1)
 	logger.Info("fugafuga")
+	time.Sleep(time.Second * 1)
 	logger.Info("piyopiyo")
 
 	return nil
@@ -84,8 +88,11 @@ func grouped(c echo.Context) error {
 		"logging.googleapis.com/trace",
 		fmt.Sprintf("projects/%s/traces/%s", "exs-development", trace),
 	)
+	time.Sleep(time.Second * 1)
 	logger.Info("hogehoge", traceField)
+	time.Sleep(time.Second * 1)
 	logger.Info("fugafuga", traceField)
+	time.Sleep(time.Second * 1)
 	logger.Info("piyopiyo", traceField)
 
 	return nil
