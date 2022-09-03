@@ -1,3 +1,3 @@
-# logging-sample
+# logging-example
 
-Go(echo) + Cloud Run + Cloud Loggingでログをきれいにするサンプル
+Go(echo) + Cloud Run + Cloud Loggingでログをきれいにする例
